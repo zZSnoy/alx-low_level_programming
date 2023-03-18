@@ -1,28 +1,30 @@
-#include <stdlib.h>
-#include <time.h>
 #include <stdio.h>
 /**
- * main - Entry Point
- * Description: Calculating if positive, negative or zero
- * Return: Always 0
+ * main - Entry point
+ *
+ * Return: always (0)
  */
+
 int main(void)
 {
-	int n;
+	int i, j;
 
-	srand(time(0));
-	n = rand() - RAND_MAX / 2;
-	if (n > 0)
+	for (i = '0' ; i < '9' ; i++)
 	{
-		printf("%d is positive\n", n);
+		for (j = '1' ; j <= '9' ; j++)
+		{
+			if (i < j)
+			{
+				putchar(i);
+				putchar(j);
+				if (i != '8' || (i == '8' &&  j != '9'))
+				{
+					putchar(',');
+					putchar(' ');
+				}
+			}
+		}
 	}
-	else if (n == 0)
-	{
-		printf("%d is zero\n", n);
-	}
-	else
-	{
-		printf("%d is negative\n", n);
-	}
+	putchar('\n');
 	return (0);
 }
